@@ -10,8 +10,6 @@ function AiworkSquad() {
   <Route path='/login' element={  <Login/>}/>
 </Routes>
 
-
-
   </div>
 }
 
