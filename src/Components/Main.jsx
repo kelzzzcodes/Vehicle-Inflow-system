@@ -8,12 +8,12 @@ import {
 import { HiOutlineChatAlt2 } from 'react-icons/hi'
 import { LiaCopy } from 'react-icons/lia'
 import { AiOutlineExport } from 'react-icons/ai'
-import { HiOutlineEnvelope } from 'react-icons/hi2'
+import { HiOutlineEnvelope, HiOutlinePaperAirplane } from 'react-icons/hi2'
 
 const Main = () => {
   return (
-    <div className="w-full bg-white">
-      <div className="flex flex-col gap-4 w-[750px]">
+    <div className="max-w-full flex bg-white mx-auto">
+      <div className="flex flex-col flex-wrap gap-4 w-[750px]">
         <div className=" w-full h-[88px] ring-1 ring-[#BCC1CAFF] rounded-sm mt-4">
           <div className="flex flex-col gap-2 pl-8  py-4  ">
             <h2 className="text-[#171A1FFF] text-base font-bold  ">
@@ -74,22 +74,28 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <div className='w-[684px] h-[56px] rounded-sm ring-1 ring-[#BCC1CAFF] bg-[#FFFFFFFC] flex items-center text-[#0095A9FF]'>
-
-            <div className=' px-6 flex w-full items-center'>
-               <div className='flex  flex-grow items-center'>
-                 <BsPatchQuestion size={24} />
-                <div className=' pl-5'>
-                    <input type='text'  placeholder='Enter your Marketing Query here...' className=' outline-none' />
-                </div>
-               </div>
-
-                    <button className='px-4 py-2 bg-blue-500  rounded-md text-black'>Send</button>
-
+        <div className="w-[684px] h-[56px] rounded-sm ring-1 ring-[#BCC1CAFF] bg-[#FFFFFFFC] flex items-center text-[#0095A9FF]">
+          <div className=" px-6 flex w-full items-center">
+            <div className="flex  flex-grow items-center">
+              <BsPatchQuestion size={24} />
+              <div className=" pl-5">
+                <input
+                  type="text"
+                  placeholder="Enter your Marketing Query here..."
+                  className=" outline-none"
+                />
+              </div>
             </div>
 
+            <button className="">
+              <HiOutlinePaperAirplane />
+            </button>
+          </div>
         </div>
-        <p className=' pl-8 text-xs'> Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <p className=" pl-8 text-xs">
+          {' '}
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        </p>
       </div>
     </div>
   )

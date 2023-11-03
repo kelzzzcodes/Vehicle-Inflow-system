@@ -2,7 +2,7 @@ import React from 'react'
 import { LoginForm } from '../Components'
 import LogoLogin from '../Assets/LogoLogin.png'
 
-const Login = () => {
+const Login = ({isLoggedIn}) => {
   return (
     <div className="bg-[#323842] w-full h-screen flex flex-col">
       <div className="flex p-8">
@@ -10,7 +10,7 @@ const Login = () => {
       </div>
 
       <div className="flex flex-col mx-auto my-16  bg-[#171A1FFF] w-[626px] h-[599px] rounded-r-lg ">
-        <LoginForm />
+        <LoginForm  isLoggedIn={isLoggedIn}/>
       </div>
 
       <div className="flex justify-center">

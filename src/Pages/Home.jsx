@@ -1,14 +1,14 @@
 import React from 'react'
-import { Navbar, Sidebar,Main } from '../Components'
+import { Navbar, Sidebar, Main } from '../Components'
 
 const Home = () => {
   return (
     <div>
       <Navbar />
 
-      <div className='flex py-5  px-3 gap-4'>
+      <div className="w-full flex  py-5  px-3 gap-4">
         <Sidebar />
-        <Main/>
+        <Main />
       </div>
     </div>
   )

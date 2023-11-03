@@ -1,16 +1,16 @@
 import { Route, Routes } from 'react-router-dom'
-import { Login ,Home} from "./Pages"
-
+import { Login, Home } from './Pages'
+import { AuthProvider } from './AuthContext'
 
 function AiworkSquad() {
-  return <div >
-
-<Routes>
-  <Route path='/' element={  <Home/>}/>
-  <Route path='/login' element={  <Login/>}/>
-</Routes>
-
-  </div>
+  return (
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </AuthProvider>
+  )
 }
 
 export default AiworkSquad
