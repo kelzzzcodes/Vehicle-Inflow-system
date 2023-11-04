@@ -1,35 +1,37 @@
 import React, { useState } from 'react'
 import { RxAvatar } from 'react-icons/rx'
 import LogoHome from '../Assets/LogoHome.png'
- import { useAuth } from '../AuthContext'
+import {  useAppContext } from '../AppProvider'
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedItem, setSelectedItem] = useState(false)
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
-  const {  logout } = useAuth();
-  const getUser = JSON.parse(localStorage.getItem("user"))
+  const { logout, updateSelectedDepartment } = useAppContext()
 
+  const getUser = JSON.parse(localStorage.getItem('user'))
 
-  const items = ['Marketing', 'Sales']
+  const Querry = ['Marketing', 'Sales']
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
   }
   const handleItemClick = (item) => {
     setSelectedItem(item)
+    updateSelectedDepartment(item);
     setIsOpen(false)
   }
+
 
   const handleDropdownToggle = () => {
     setIsDropdownVisible(!isDropdownVisible)
   }
 
   const handleSignOutClick = () => {
-
-    localStorage.removeItem("user");
-   logout()
+    localStorage.removeItem('user')
+    logout()
   }
 
   return (
@@ -42,7 +44,7 @@ const Navbar = () => {
             onClick={toggleDropdown}
             className="flex items-center justify-center w-[237px] h-[36px]  bg-white rounded-md border-2 border-[#171A1FFF]"
           >
-            {selectedItem ? selectedItem : 'Department:Marketing'}
+            {selectedItem ? ` Department: ${selectedItem}`  : 'Department:Marketing'}
 
             <svg
               className={`-mr-1 ml-2 h-5 w-5 ${
@@ -69,52 +71,43 @@ const Navbar = () => {
                 aria-orientation="vertical"
                 aria-labelledby="options-menu"
               >
-                <button
-                  className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                  role="menuitem"
-                  onClick={() => handleItemClick('Department: Sales')}
-                >
-                  Department: Sales
-                </button>
-                <button
-                  className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                  role="menuitem"
-                  onClick={() => handleItemClick('Department: Marketing')}
-                >
-                  Department: Marketing
-                </button>
+                {Querry.map((item) => (
+                  <button
+                    className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                    role="menuitem"
+                    onClick={() => handleItemClick(`${item}`)}
+                  >
+                    Department: {item}
+                  </button>
+                ))}
               </div>
             </div>
           )}
         </div>
-        <div className="flex items-center gap-2 ">
-          <div className="relative inline-block ">
 
-            {
-              getUser ?
-               <button
+        <div className="relative inline-block ">
+          {getUser ? (
+            <button
               className="flex items-center gap-[1px] text-white"
               onMouseEnter={handleDropdownToggle}
             >
               <RxAvatar className="w-5 h-5" />
               <p className=" text-xs">Nithin</p>
             </button>
-            : <p>hello</p>
+          ) : (
+            <p>hello</p>
+          )}
 
-            }
-
-
-            {isDropdownVisible && (
-              <div className="absolute   w-24 right-0 mt-2 bg-white border border-gray-300 rounded shadow-lg">
-                <button
-                  className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
-                  onClick={handleSignOutClick}
-                >
-                  Sign Out
-                </button>
-              </div>
-            )}
-          </div>
+          {isDropdownVisible && (
+            <div className="absolute   w-24 right-0 mt-2 bg-white border border-gray-300 rounded shadow-lg">
+              <button
+                className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                onClick={handleSignOutClick}
+              >
+                Sign Out
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

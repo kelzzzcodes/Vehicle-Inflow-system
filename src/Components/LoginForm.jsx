@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import { AiOutlineMail } from 'react-icons/ai'
 import { BiLockAlt } from 'react-icons/bi'
 import { authenticateUser } from '../Utils'
-import { useAuth } from '../AuthContext'
+import { useAppContext } from '../AppProvider'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const [error, setError] = useState('');
-  const { login } = useAuth();
+  const [error, setError] = useState('')
+  const { login } = useAppContext()
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -17,11 +17,9 @@ const LoginForm = () => {
     const isValidCredentials = authenticateUser(username, password)
 
     if (isValidCredentials) {
-
-      localStorage.setItem('user', JSON.stringify({username,password}));
+      localStorage.setItem('user', JSON.stringify({ username, password }))
 
       login()
-
     } else {
       setError('Invalid username or password')
     }

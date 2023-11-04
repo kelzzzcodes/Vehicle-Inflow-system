@@ -9,8 +9,12 @@ import { HiOutlineChatAlt2 } from 'react-icons/hi'
 import { LiaCopy } from 'react-icons/lia'
 import { AiOutlineExport } from 'react-icons/ai'
 import { HiOutlineEnvelope, HiOutlinePaperAirplane } from 'react-icons/hi2'
+import { useAppContext } from '../AppProvider'
 
 const Main = () => {
+
+     const { selectedDepartment } = useAppContext();
+
   return (
     <div className="max-w-full flex bg-white mx-auto">
       <div className="flex flex-col flex-wrap gap-4 w-[750px]">
@@ -81,7 +85,7 @@ const Main = () => {
               <div className=" pl-5">
                 <input
                   type="text"
-                  placeholder="Enter your Marketing Query here..."
+                  placeholder={`Enter your ${selectedDepartment || 'Marketing'} Query here...`}
                   className=" outline-none"
                 />
               </div>
