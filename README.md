@@ -2,6 +2,15 @@
 ReactJS App with Tailwind CSS
 Welcome to our ReactJS application styled with Tailwind CSS! This simple yet elegant app features a login page and a home page, allowing users to sign in with the credentials provided below. Additionally, a user can log out by hovering over the avatar, which reveals a dropdown menu with a signout option.
 
+# Live Demo
+
+Link : https://aiwork-squad.vercel.app/login
+
+Users can sign in using the following credentials:
+Email: user@example.com
+Password: password
+
+
 # Getting Started
 Clone the repository:
 
