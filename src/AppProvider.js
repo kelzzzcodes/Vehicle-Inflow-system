@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoggedIn(false)
       navigate('/login')
     }
-  }, [navigate])
+  }, [navigate,location.pathname])
 
   const login = () => {
     setIsLoggedIn(true)
@@ -35,11 +35,11 @@ export const AuthProvider = ({ children }) => {
     navigate('/login')
   }
 
-  const [selectedDepartment, setSelectedDepartment] = useState('')
 
-  const updateSelectedDepartment = (department) => {
-    setSelectedDepartment(department)
-  }
+
+
+
+
 
   return (
     <AppContext.Provider
@@ -47,8 +47,8 @@ export const AuthProvider = ({ children }) => {
         isLoggedIn,
         login,
         logout,
-        selectedDepartment,
-        updateSelectedDepartment,
+
+
       }}
     >
       {children}

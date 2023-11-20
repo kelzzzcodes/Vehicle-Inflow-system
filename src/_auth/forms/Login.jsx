@@ -1,6 +1,6 @@
 import React from 'react'
-import { LoginForm } from '../Components'
-import LogoLogin from '../Assets/LogoLogin.png'
+import LogoLogin from '../../Assets/LogoLogin.png'
+import LoginForm from '../../Components/LoginForm';
 
 const Login = ({isLoggedIn}) => {
   return (
