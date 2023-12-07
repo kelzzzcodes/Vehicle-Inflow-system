@@ -3,6 +3,7 @@ import { AiOutlineMail } from 'react-icons/ai'
 import { BiLockAlt } from 'react-icons/bi'
 import { authenticateUser } from '../Utils'
 import { useAppContext } from '../AppProvider'
+import { toast, Bounce } from 'react-toastify'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('')
@@ -19,9 +20,13 @@ const LoginForm = () => {
     if (isValidCredentials) {
       localStorage.setItem('user', JSON.stringify({ username, password }))
 
+      toast(`${username} successfully logged in`,)
+
       login()
     } else {
-      setError('Invalid username or password')
+      toast('Invalid username or password',  {
+  transition: Bounce
+})
     }
   }
 

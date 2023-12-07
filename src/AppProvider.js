@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoggedIn(false)
       navigate('/login')
     }
-  }, [navigate,location.pathname])
+  }, [navigate, location.pathname])
 
   const login = () => {
     setIsLoggedIn(true)
@@ -35,23 +35,15 @@ export const AuthProvider = ({ children }) => {
     navigate('/login')
   }
 
-
-
-
-
-
+  const value = {
+    isLoggedIn,
+    login,
+    logout,
+  }
 
   return (
-    <AppContext.Provider
-      value={{
-        isLoggedIn,
-        login,
-        logout,
-
-
-      }}
-    >
-      {children}
+    <AppContext.Provider value={value}>
+    {children}
     </AppContext.Provider>
   )
 }

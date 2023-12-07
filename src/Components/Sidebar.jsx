@@ -4,7 +4,7 @@ import { sidebarNav } from '../Constants'
 
 const Sidebar = () => {
   return (
-    <div className="w-[218px] h-[calc(100vh-104px)]  flex flex-col items-center   rounded-sm shadow-md ring-2 ring-[#F3F3F3]">
+    <div className="w-[218px] h-[calc(100vh-104px)]  hidden md:flex flex-col items-center   rounded-sm shadow-md ring-2 ring-[#F3F3F3]">
       <div className="flex  flex-1 flex-col gap-4 mt-8">
         {sidebarNav.map((item) => (
           <Link
